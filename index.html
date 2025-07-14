@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drowsiness and Distraction Detection</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>🎥 VisionGuard</h1>
+
+  <div class="controls">
+    <button class="start-btn" onclick="startCamera()">Start</button>
+    <button class="stop-btn" onclick="stopCamera()">Stop</button>
+  </div>
+
+  <video id="webcam" autoplay playsinline muted></video>
+
+  <!-- 🔊 Audio alerts for each behavior -->
+  <audio id="sound-drowsy" src="drowsy.mp3" preload="auto"></audio>
+  <audio id="sound-distracted" src="distracted.mp3" preload="auto"></audio>
+  <audio id="sound-cigarette" src="cigarette.mp3" preload="auto"></audio>
+  <audio id="sound-phone" src="phone.mp3" preload="auto"></audio>
+  <audio id="sound-child" src="child.mp3" preload="auto"></audio>
+
+  <!-- ⚠️ Alert box -->
+  <div id="alert-box" style="display:none;"></div>
+
+  <!-- 📊 Stats box -->
+  <div id="stats" class="stats-box">
+    <p>หลับใน: <span id="count-drowsy">0</span></p>
+    <p>เหม่อลอย: <span id="count-distracted">0</span></p>
+    <p>สูบบุหรี่: <span id="count-Cigarette">0</span></p>
+    <p>ใช้โทรศัพท์: <span id="count-Phone">0</span></p>
+    <p>เด็กเล็กรบกวน: <span id="count-Child">0</span></p>
+  </div>
+
+  <!-- 📦 Script dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.4/dist/teachablemachine-image.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/face_mesh.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
